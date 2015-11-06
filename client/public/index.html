@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pickup!</title>
+
+  <!-- styelsheets -->
+  <link rel="stylesheet" href="assets/lib/foundation/css/foundation.min.css">
+  <link rel="stylesheet" href="assets/lib/foundation/css/normalize.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Biryani:600' rel='stylesheet' type='text/css'>
+  
+  <!-- APIs -->
+  <script src="https://maps.google.com/maps/api/js?libraries=places"></script>
+
+  <!-- libraries  -->
+  <script type="text/javascript" src="assets/lib/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/lib/modernizr/modernizr.js"></script>
+  <script type="text/javascript" src="assets/lib/angular/angular.min.js"></script>
+  <script type="text/javascript" src="assets/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <!-- angular modules  -->
+  <script type="text/javascript" src="app/map/map.js"></script>
+  <script type="text/javascript" src="app/auth/auth.js"></script>
+  <script type="text/javascript" src="app/courts/courts.js"></script>
+  <script type="text/javascript" src="app/users/users.js"></script>
+  <script type="text/javascript" src="app/services/services.js"></script>
+  <script type="text/javascript" src="app/app.module.js"></script>
+
+  <!-- Used by gulp's livereload. Needs to be stripped out for production -->
+  <script src="//localhost:35729/livereload.js"></script>
+  
+</head>
+<body ng-app='app'>
+<h1>Pickup!</h1>
+  <div class="map-container" ng-controller="mapController" ng-init="geolocateUser()">
+    <!-- Used id's. I am ashamed -->
+    <div id="map-canvas"></div>
+    <p class="address"><b>Address:</b><span id="address"></span>
+    <span id="error"></span></p>
+  </div>
+  <div ui-view></div>
+  <div ui-view='userInfo'></div>
+  <div ui-view='courtInfo'></div>
+</body>
+</html>
